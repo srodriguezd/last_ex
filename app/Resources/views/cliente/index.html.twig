@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>EXAMEN </h1>
+
+    <table  border=”0″ cellpadding=”0″ cellspacing=”0″>
+
+        {% for cliente in cliente %}
+            <tr bgcolor="cyan">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.createdAt|date("d/m/Y H:i:s") }}</td>
+                <td>{{ cliente.updatedAt|date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_cliente_remove', {'id': cliente.id}) }}">BORRAR</a></td>
+            </tr>
+        {% endfor %}
+
+        {% for articulo in articulo %}
+            <tr bgcolor="cyan">
+                <td>{{ articulo.id }}</td>
+                <td>{{ articulo.nombre }}</td>
+                <td>{{ articulo.precio }}</td>
+                <td>{{ articulo.createdAt|date("d/m/Y H:i:s") }}</td>
+                <td>{{ articulo.updatedAt|date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_articulo_remove', {'id': articulo.id}) }}">BORRAR</a></td>
+            </tr>
+        {% endfor %}
+
+        {% for pedido in pedido %}
+            <tr bgcolor="cyan">
+                <td>{{ pedido.id }}</td>
+                <td>{{ pedido.fecha }}</td>
+                <td>{{ pedido.precio }}</td>
+                <td>{{ pedido.createdAt|date("d/m/Y H:i:s") }}</td>
+                <td>{{ pedido.updatedAt|date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_pedido_remove', {'id': pedido.id}) }}">BORRAR</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="margin-top: 10px">
+
+    <ul>
+        <li><a href="{{ path('app_cliente_insert') }}">insert cliente</a>   </li>
+    </ul>
+    <ul>
+        <li><a href="{{ path('app_articulo_insert') }}">insert articulo</a>   </li>
+    </ul>
+    <ul>
+        <li><a href="{{ path('app_pedido_insert') }}">insert pedido</a>   </li>
+    </ul>
+
+{% endblock %}
