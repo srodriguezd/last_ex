@@ -5,6 +5,12 @@ app.index:
     resource: "@AppBundle/Controller/IndexController.php"
     type: annotation
 
-asd:
+cliente:
   resource: "@AppBundle/Controller/ClienteController.php"
+  type: annotation
+articulo:
+  resource: "@AppBundle/Controller/ArticuloController.php"
+  type: annotation
+pedido:
+  resource: "@AppBundle/Controller/PedidoController.php"
   type: annotation

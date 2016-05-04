@@ -35,21 +35,23 @@ class Cliente
     private $pedidos;
 
 
-/**
-* @var \DateTime
-*
-* @ORM\Column(name="created_at", type="datetime")
-*/
+    /**
+    * @var \DateTime
+    *
+    * @ORM\Column(name="created_at", type="datetime")
+    */
     private $createdAt;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
+
     public function __construct()
     {
-        $this->pedidos         = new ArrayCollection();
+        $this->pedidos   = new ArrayCollection();
 
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime("now");

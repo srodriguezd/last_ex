@@ -34,11 +34,11 @@ class Pedido
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Articulo", cascade={"persist"}, inversedBy="pedidos")
      */
     private $articulos;
+
     /**
-     * @ORM\ManyToOne(targetEntity="Trascastro\UserBundle\Entity\Cliente", inversedBy="pedidos")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cliente", inversedBy="pedidos")
      */
     private $cliente;
-
 
     /**
      * @var \DateTime
@@ -46,12 +46,14 @@ class Pedido
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
+
     public function __construct()
     {
         $this->articulos    = new ArrayCollection();
@@ -59,12 +61,14 @@ class Pedido
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime("now");
     }
+
     /**
      * @ORM\PreUpdate
      */
     public function setUpdatedAtValue() {
         $this->setUpdatedAt(new \DateTime());
     }
+
     /**
      * Get id
      *
@@ -74,6 +78,7 @@ class Pedido
     {
         return $this->id;
     }
+
     /**
      * Set fecha
      *
@@ -86,6 +91,7 @@ class Pedido
         $this->precio = $precio;
         return $this;
     }
+
     /**
      * Get fecha
      *
@@ -108,6 +114,7 @@ class Pedido
         $this->createdAt = $createdAt;
         return $this;
     }
+
     /**
      * Get createdAt
      *
@@ -117,6 +124,7 @@ class Pedido
     {
         return $this->createdAt;
     }
+
     /**
      * Set updatedAt
      *
@@ -129,6 +137,7 @@ class Pedido
         $this->updatedAt = new \Datetime("now");
         return $this;
     }
+
     /**
      * Get updatedAt
      *
@@ -151,6 +160,7 @@ class Pedido
         $this->articulos[] = $articulo;
         return $this;
     }
+
     /**
      * Remove articulo
      *
@@ -160,6 +170,7 @@ class Pedido
     {
         $this->articulos->removeElement($articulo);
     }
+
     /**
      * Get articulos
      *

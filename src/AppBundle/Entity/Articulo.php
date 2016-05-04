@@ -41,7 +41,6 @@ class Articulo
      */
     private $pedidos;
 
-
     /**
      * @var \DateTime
      *
@@ -54,6 +53,7 @@ class Articulo
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
+
     public function __construct()
     {
         $this->pedidos      = new ArrayCollection();
